@@ -54,6 +54,7 @@
         btn_close: '.shoji-close-menu',
         animate: true,
         animate_speed: 400,
+        direction: 'left',
         
         // These are global to the entire 
         // plugin
@@ -68,16 +69,14 @@
         
         var upper_break = shata['breakpoints'][shata['partial_breakpoint']];
         var lower_break = shata['breakpoints'][shata['fullscreen_breakpoint']];
-        
+
         if(window.innerWidth <= upper_break && window.innerWidth > lower_break){
             if(shata['animate']){
                 el
                     .addClass(shata['active_menu_class'])
-                    .css({left: '-2000px'})
+                    .css(shata['direction'] === 'left' ? {left: '-2000px'} : {right: '-2000px'})
                     .animate(
-                        {
-                            left: 0
-                        }, 
+                        shata['direction'] === 'left' ? {left: 0} : {right: 0},
                         {
                             'duration': shata['animate_speed'],
                             'complete': function(){
@@ -109,15 +108,13 @@
             if(shata['animate']){
                 el
                     .animate(
-                        {
-                            left: '-2000px'
-                        }, 
+                        shata['direction'] === 'left' ? {left: '-2000px'} : {right: '-2000px'}, 
                         {
                             'duration': 400, 
                             'complete': function(){
                                 el
                                     .removeClass(shata['active_menu_class'])
-                                    .css({left: 0});
+                                    .css(shata['direction'] === 'left' ? {left: 0} : {right: 0});
                             }
                         }
                     );

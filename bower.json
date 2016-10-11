@@ -1,0 +1,24 @@
+{
+  "name": "shoji",
+  "description": "A jQuery plugin which can take a page element and turn it into a mobile ready sliding menu",
+  "keywords": [
+    "js",
+    "jquery",
+    "responsive",
+    "front-end",
+    "navigation",
+    "menu",
+    "web"
+  ],
+  "homepage": "https://getbootstrap.com",
+  "license": "BSD 3",
+  "main": [
+    "shoji.js"
+  ],
+  "ignore": [
+    "/.*"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1 - 3"
+  }
+}
