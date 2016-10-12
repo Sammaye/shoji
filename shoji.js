@@ -1,10 +1,15 @@
 (function($){
-    $.fn.shoji = function(options){
+    $.fn.shoji = function(options, force){
+        
+        if(force === undefined || !force){
+            force = false;
+        }
+        
         return this.each(function(){
             var $this = $(this);
             var data = $.extend({}, $.fn.shoji.defaults, options);
             
-            if(!$(this).data($.fn.shoji.defaults.data_index)){
+            if(force || !$(this).data($.fn.shoji.defaults.data_index)){
                 
                 $(data['btn_open']).bind('click', function(e){
                     e.preventDefault();
